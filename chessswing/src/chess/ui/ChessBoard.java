@@ -8,31 +8,38 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import chess.pic.Pictures;
 
-public class ChessBoard extends JPanel {
+public class ChessBoard extends PieceMove {
 	public static int BAORD = 600;
 	public static int CELL = 8;
 	public static int SQUARE = BAORD / CELL;
-	ImageIcon[][] pieces;
+
+	ChessBoard() {
+		paintBoard();
+		
+	}
 
 	public void paintComponent(Graphics g) {
+		//System.out.println("draw!");
 		Graphics2D g2 = (Graphics2D) g;
 		g2.drawLine(0, 0, 600, 600);
-		paintBoard();
+	
+
 		for (int x = 0; x < CELL; x++) {
 			for (int y = 0; y < CELL; y++) {
 				paintSquare(g2, x, y);
 				if (pieces[x][y] != null)
 					g2.drawImage(pieces[x][y].getImage(), SQUARE * x, SQUARE
 							* y, SQUARE, SQUARE, this);
+
 			}
 		}
+		mousePiece(g2); 
 
 		g2.setColor(new Color(0, 0, 0));
-		g2.drawLine(0, BAORD / 2, BAORD, BAORD / 2);
+		// g2.drawLine(0, BAORD / 2, BAORD, BAORD / 2);
 		g2.drawRect(0, 0, BAORD, BAORD);
 	}
 
@@ -42,7 +49,10 @@ public class ChessBoard extends JPanel {
 		Color squareColor = isWhiteSquare ? new Color(58, 165, 212)
 				: new Color(239, 240, 240);
 		g2.setColor(squareColor);
-		g2.fillRect(x * SQUARE, y * SQUARE, SQUARE, SQUARE);
+		g2.fillRect(SQUARE * x, SQUARE * y, SQUARE, SQUARE);
+		g2.setColor(Color.BLACK);
+		g2.drawRect(SQUARE * x, SQUARE * y, SQUARE, SQUARE);
+
 	}
 
 	public void paintBoard() {
