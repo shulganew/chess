@@ -2,20 +2,18 @@ package chess.ui;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
 
 import chess.pic.Pictures;
 
 public class ChessBoard extends PieceMove {
-	public static int BAORD = 600;
+	public static int BAORD = 800;
 	public static int CELL = 8;
 	public static int SQUARE = BAORD / CELL;
+
 
 	ChessBoard() {
 		paintBoard();
@@ -45,7 +43,7 @@ public class ChessBoard extends PieceMove {
 	}
 
 	public Dimension getPreferredSize() {
-		return new Dimension(BAORD + 30, BAORD + 30);
+		return new Dimension(BAORD + 18, BAORD + 63);
 	}
 
 	public void paintSquare(Graphics2D g2, int x, int y) {

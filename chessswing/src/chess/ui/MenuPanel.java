@@ -32,11 +32,11 @@ public class MenuPanel extends JPanel {
 	menuBar.add(file);
 	menuBar.add(help);
 	
-	//setLayout(new GridLayout());
+	setLayout(new GridLayout());
 	
-	setLayout(new BorderLayout());
+	//setLayout(new BorderLayout());
 	
-	add(menuBar, BorderLayout.WEST);
+	add(menuBar);
 
 	
 	}

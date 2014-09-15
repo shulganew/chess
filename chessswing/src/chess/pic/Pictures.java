@@ -1,5 +1,8 @@
 package chess.pic;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -30,7 +33,7 @@ public class Pictures {
 		iconChessNotebook = new ImageIcon(
 				Pictures.class.getResource("Chess.png"));
 		imageIconKingBlack = new ImageIcon(
-				Pictures.class.getResource("bKingZurich.gif"));
+				Pictures.class.getResource("bKing.png"));
 		imageIconQueenBlack = new ImageIcon(
 				Pictures.class.getResource("bQueenZurich.gif"));
 		imageIconBishopBlack = new ImageIcon(
@@ -55,4 +58,6 @@ public class Pictures {
 		imageIconPawnWhite = new ImageIcon(
 				Pictures.class.getResource("wPawnZurich.gif"));
 	}
+
+
 }

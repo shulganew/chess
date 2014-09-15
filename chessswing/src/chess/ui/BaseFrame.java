@@ -12,14 +12,14 @@ public class BaseFrame extends JFrame {
 
 	public BaseFrame() {
 		Pictures.LosdImageIcons();
-		setSize(DEFAULT_WIDTH + 18, DEFAULT_HEIGHT + 63);
+		//setSize(DEFAULT_WIDTH + 18, DEFAULT_HEIGHT + 63);
 		//setIconImage();
 		setIconImage(Pictures.iconChessNotebook.getImage());
 		setTitle("Chess Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(new MainPanel());
 		//setBackground(Color.blue);
-
+		pack();
 		
 		setVisible(true);
 		
