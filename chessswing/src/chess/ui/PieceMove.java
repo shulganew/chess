@@ -30,6 +30,7 @@ public class PieceMove extends JPanel implements MouseListener,
 	public PieceMove() {
 		addMouseListener(this);
 		addMouseMotionListener(this);
+	
 
 	}
 
@@ -95,7 +96,9 @@ public class PieceMove extends JPanel implements MouseListener,
 			pieces[lastX][lastY] = lpiece;
 
 		setCursor(Cursor.getDefaultCursor());
+		
 		repaint();
+	
 
 	}
 
@@ -104,6 +107,7 @@ public class PieceMove extends JPanel implements MouseListener,
 			g.drawImage(piece.getImage(), cSelectedPieceX - ChessBoard.SQUARE
 					/ 2, cSelectedPieceY - ChessBoard.SQUARE / 2,
 					ChessBoard.SQUARE, ChessBoard.SQUARE, this);
+		
 	}
 
 	@Override

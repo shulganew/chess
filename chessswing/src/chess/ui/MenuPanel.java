@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -17,7 +18,6 @@ public class MenuPanel extends JPanel {
 		// TODO Auto-generated constructor stub
 		
 	JMenuBar menuBar = new JMenuBar();	
-	
 	JMenu file = new  JMenu("File");
 	JMenuItem fileNew = new JMenuItem("New Game");
 	JMenuItem fileExit = new JMenuItem("Exit");
@@ -31,10 +31,14 @@ public class MenuPanel extends JPanel {
 
 	menuBar.add(file);
 	menuBar.add(help);
-	setLayout(new GridLayout());
 	
-	//setLayout(new BorderLayout());
+	//setLayout(new GridLayout());
+	
+	setLayout(new BorderLayout());
+	
 	add(menuBar, BorderLayout.WEST);
+
+	
 	}
 
 	

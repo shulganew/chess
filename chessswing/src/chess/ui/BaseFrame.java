@@ -18,9 +18,9 @@ public class BaseFrame extends JFrame {
 		setTitle("Chess Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(new MainPanel());
-		setBackground(Color.blue);
-		//frame.add(new MenuPanel());
-	
+		//setBackground(Color.blue);
+
+		
 		setVisible(true);
 		
 		

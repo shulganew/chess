@@ -1,6 +1,7 @@
 package chess.ui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,14 +19,14 @@ public class ChessBoard extends PieceMove {
 
 	ChessBoard() {
 		paintBoard();
-		
+
 	}
 
 	public void paintComponent(Graphics g) {
-		//System.out.println("draw!");
+		// System.out.println("draw!");
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawLine(0, 0, 600, 600);
-	
+		//перерисовывает задний фон, узнать и понять подробнее
+		super.paintComponent(g2);
 
 		for (int x = 0; x < CELL; x++) {
 			for (int y = 0; y < CELL; y++) {
@@ -36,11 +37,15 @@ public class ChessBoard extends PieceMove {
 
 			}
 		}
-		mousePiece(g2); 
+		mousePiece(g2);
 
 		g2.setColor(new Color(0, 0, 0));
 		// g2.drawLine(0, BAORD / 2, BAORD, BAORD / 2);
 		g2.drawRect(0, 0, BAORD, BAORD);
+	}
+
+	public Dimension getPreferredSize() {
+		return new Dimension(BAORD + 30, BAORD + 30);
 	}
 
 	public void paintSquare(Graphics2D g2, int x, int y) {
@@ -52,6 +57,9 @@ public class ChessBoard extends PieceMove {
 		g2.fillRect(SQUARE * x, SQUARE * y, SQUARE, SQUARE);
 		g2.setColor(Color.BLACK);
 		g2.drawRect(SQUARE * x, SQUARE * y, SQUARE, SQUARE);
+          
+ 
+        
 
 	}
 
@@ -86,4 +94,5 @@ public class ChessBoard extends PieceMove {
 		pieces[4][7] = Pictures.imageIconKingWhite;
 
 	}
+
 }
