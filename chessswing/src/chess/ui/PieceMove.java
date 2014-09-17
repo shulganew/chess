@@ -3,6 +3,7 @@ package chess.ui;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -15,14 +16,14 @@ import javax.swing.JPanel;
 
 public class PieceMove extends JPanel implements MouseListener,
 		MouseMotionListener {
-	protected ImageIcon[][] pieces;
+	protected Image[][] pieces;
 	private int selectedPieceX;
 	private int selectedPieceY;
 	private int cSelectedPieceX;
 	private int cSelectedPieceY;
 
-	private ImageIcon piece;
-	private ImageIcon lpiece;
+	private Image piece;
+	private Image lpiece;
 	private int lastX;
 	private int lastY;
 	private boolean setP = false;
@@ -104,7 +105,7 @@ public class PieceMove extends JPanel implements MouseListener,
 
 	protected void mousePiece(Graphics2D g) {
 		if (setP)
-			g.drawImage(piece.getImage(), cSelectedPieceX - ChessBoard.SQUARE
+			g.drawImage(piece, cSelectedPieceX - ChessBoard.SQUARE
 					/ 2, cSelectedPieceY - ChessBoard.SQUARE / 2,
 					ChessBoard.SQUARE, ChessBoard.SQUARE, this);
 		
