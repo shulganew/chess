@@ -36,9 +36,9 @@ public class Pictures {
 		// System.out.println(imgURL.toString());
 		// System.out.println(Pictures.class.toString());
 		iconChessNotebook = new ImageIcon(Pictures.class.getResource("Chess.png"));
-		
+
 		imageIconKingBlack = getPicImage("♚");
-		
+
 		imageIconQueenBlack = getPicImage("♛");
 		imageIconBishopBlack = getPicImage("♝");
 		imageIconKnightBlack = getPicImage("♞");
@@ -50,44 +50,22 @@ public class Pictures {
 		imageIconBishopWhite = getPicImage("♗");
 		imageIconKnightWhite = getPicImage("♘");
 		imageIconRookWhite = getPicImage("♖");
-		imageIconPawnWhite = getPicImage("♙");		
-		//imageIconPawnWhite = getPicImage("");
-	
-		
-		
-		/*
-		
-		imageIconKingBlack = new ImageIcon(Pictures.class.getResource("bKing.png"));
-		imageIconQueenBlack = new ImageIcon(Pictures.class.getResource("bQueenZurich.gif"));
-		imageIconBishopBlack = new ImageIcon(Pictures.class.getResource("bBishopZurich.gif"));
-		imageIconKnightBlack = new ImageIcon(Pictures.class.getResource("bKnightZurich.gif"));
-		imageIconRookBlack = new ImageIcon(Pictures.class.getResource("bRookZurich.gif"));
-		imageIconPawnBlack = new ImageIcon(Pictures.class.getResource("bPawnZurich.gif"));
+		imageIconPawnWhite = getPicImage("♙");
 
-		imageIconKingWhite = new ImageIcon(Pictures.class.getResource("wKingZurich.gif"));
-		imageIconQueenWhite = new ImageIcon(Pictures.class.getResource("wQueenZurich.gif"));
-		imageIconBishopWhite = new ImageIcon(Pictures.class.getResource("wBishopZurich.gif"));
-		imageIconKnightWhite = new ImageIcon(Pictures.class.getResource("wKnightZurich.gif"));
-		imageIconRookWhite = new ImageIcon(Pictures.class.getResource("wRookZurich.gif"));
-		imageIconPawnWhite = new ImageIcon(Pictures.class.getResource("wPawnZurich.gif"));
-		*/
-		
 	}
 
 	private static Image getPicImage(String s) {
 		String message = s;
-		
 
 		BufferedImage bImg = new BufferedImage(375, 375, BufferedImage.TRANSLUCENT);
 		Graphics2D gr = bImg.createGraphics();
-		Font f = new Font("Serif", Font.PLAIN, 410); //410
+		Font f = new Font("Serif", Font.PLAIN, 410); // 410
 		gr.setFont(f);
 		gr.setPaint(Color.BLACK);
 		FontRenderContext context = gr.getFontRenderContext();
 		Rectangle2D bounds = f.getStringBounds(message, context);
-		System.out.println("Wind " + bounds.getWidth() + "Hig "
-				+ bounds.getWidth());
-		double x = (375 - bounds.getWidth()) / 2; //375
+		System.out.println("Wind " + bounds.getWidth() + "Hig " + bounds.getWidth());
+		double x = (375 - bounds.getWidth()) / 2; // 375
 		double y = (375 - bounds.getHeight()) / 2;
 		double ascent = -bounds.getY();
 		double baseY = y + ascent;
