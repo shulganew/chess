@@ -7,10 +7,6 @@ import java.awt.Image;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -32,9 +28,6 @@ public class Pictures {
 	public static Image imageIconPawnBlack;
 
 	public static void LosdImageIcons() {
-		// URL imgURL = Pictures.class.getResource("Chess.ico");
-		// System.out.println(imgURL.toString());
-		// System.out.println(Pictures.class.toString());
 		iconChessNotebook = new ImageIcon(Pictures.class.getResource("Chess.png"));
 
 		imageIconKingBlack = getPicImage("♚");
@@ -51,12 +44,10 @@ public class Pictures {
 		imageIconKnightWhite = getPicImage("♘");
 		imageIconRookWhite = getPicImage("♖");
 		imageIconPawnWhite = getPicImage("♙");
-
 	}
 
 	private static Image getPicImage(String s) {
 		String message = s;
-
 		BufferedImage bImg = new BufferedImage(375, 375, BufferedImage.TRANSLUCENT);
 		Graphics2D gr = bImg.createGraphics();
 		Font f = new Font("Serif", Font.PLAIN, 410); // 410
@@ -71,7 +62,5 @@ public class Pictures {
 		double baseY = y + ascent;
 		gr.drawString(message, (int) x, (int) baseY);
 		return bImg;
-
 	}
-
 }

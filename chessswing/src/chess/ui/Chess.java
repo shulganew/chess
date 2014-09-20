@@ -2,10 +2,6 @@ package chess.ui;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-
-import chess.pic.Pictures;
-
 public class Chess {
 
 	/**
@@ -16,8 +12,8 @@ public class Chess {
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				BaseFrame frame = new BaseFrame();
-				
+				new BaseFrame();
+
 			}
 		});
 
