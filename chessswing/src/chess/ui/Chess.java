@@ -13,6 +13,7 @@ public class Chess {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new BaseFrame();
+				
 
 			}
 		});

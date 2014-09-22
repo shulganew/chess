@@ -61,11 +61,11 @@ public class Move
     //         2          1
     //       109876  5432109876543210
     //
-    //               0000xxxxxxxxxxxx    specials
-    //       cccmmm  0pppttttttffffff    regular move
-    //       cccmmm  1pppttttttffffff    capturing move
-    //       cccmmm  1110ttttttffffff    ep move
-    //               1111xxxxxxxxxxxx    castles
+    //               0000 xxxx xxxx xxxx    specials
+    //       cccmmm  0ppp tttt ttff ffff    regular move
+    //       cccmmm  1ppp tttt ttff ffff    capturing move
+    //       cccmmm  1110 tttt ttff ffff    ep move
+    //               1111 xxxx xxxx xxxx    castles
     
     //       mmm     moving piece
     //       ccc     captured piece
@@ -74,23 +74,38 @@ public class Move
     //       ffffff  from sqi
     //
     //  value 0 means NO_MOVE, allowing arrays of moves to be initialized with 0 (default)
+    //	MIN_STONE = -6, 
+    //	MAX_STONE = 6, 
+    //	WHITE_KING = -6, 
+    //	WHITE_PAWN = -5, 
+    //	WHITE_QUEEN = -4, 
+    //	WHITE_ROOK = -3, 
+    //	WHITE_BISHOP = -2, 
+    //	WHITE_KNIGHT = -1,
+    //	BLACK_KING = 6, 
+    //	BLACK_PAWN = 5, 
+    //	BLACK_QUEEN = 4, 
+    //	BLACK_ROOK = 3, 
+    //	BLACK_BISHOP = 2, 
+    //	BLACK_KNIGHT = 1, // 001
+    //	NO_STONE = NO_PIECE;
     
     
-    private final static int TYPE_MASK                = 0x00008000;
-    private final static int REGULAR_MOVE             = 0x00000000;
-    private final static int CAPTURING_MOVE           = 0x00008000;
+    private final static int TYPE_MASK                = 0x00008000; // 1000 0000 0000 0000  /2 bytes 
+    private final static int REGULAR_MOVE             = 0x00000000; 
+    private final static int CAPTURING_MOVE           = 0x00008000; // 1000 0000 0000 0000  /2 bytes 
     
-    private final static int PROMO_MASK               = 0x00007000;
-    private final static int CASTLE_MOVE              = 0x00007000;
-    private final static int EP_MOVE                  = 0x00006000;
-    private final static int PROMO_QUEEN              = 0x00005000;
-    private final static int PROMO_ROOK               = 0x00004000;
-    private final static int PROMO_BISHOP             = 0x00003000;
-    private final static int PROMO_KNIGHT             = 0x00002000;
-    private final static int NO_PROMO                 = 0x00001000;
-    public  final static int SPECIAL_MOVE             = 0x00000000;  // allow defining of own specials
+    private final static int PROMO_MASK               = 0x00007000; // 0111 0000 0000 0000
+    private final static int CASTLE_MOVE              = 0x00007000; // 0111 0000 0000 0000
+    private final static int EP_MOVE                  = 0x00006000; // 0110 0000 0000 0000
+    private final static int PROMO_QUEEN              = 0x00005000; // 0101 0000 0000 0000
+    private final static int PROMO_ROOK               = 0x00004000; // 0100 0000 0000 0000
+    private final static int PROMO_BISHOP             = 0x00003000; // 0011 0000 0000 0000
+    private final static int PROMO_KNIGHT             = 0x00002000; // 0010 0000 0000 0000
+    private final static int NO_PROMO                 = 0x00001000; // 0001 0000 0000 0000
+    public  final static int SPECIAL_MOVE             = 0x00000000; // allow defining of own specials
     public  final static int NUM_OF_SPECIAL_MOVES     = 0x00001000;
-    
+    																// 0001 0010 0000 0000
     private final static int FROM_SHIFT               =  0;
     private final static int TO_SHIFT                 =  6;
 //    private final static int PROMOTION_SHIFT          = 12;
@@ -234,6 +249,7 @@ public class Move
         StringBuffer sb = new StringBuffer();
         for (int i=15; i>=0; i--) {
             if ((move & (1 << i)) != 0) sb.append("1"); else sb.append("0");
+            if (i % 4 == 0) sb.append(" ");
         }
         return sb.toString();
     }
