@@ -15,7 +15,7 @@ public class BaseFrame extends JFrame {
 		//setSize(DEFAULT_WIDTH + 18, DEFAULT_HEIGHT + 63);
 		//setIconImage();
 		setIconImage(Pictures.iconChessNotebook.getImage());
-		setTitle("Chess Game");
+		setTitle("Шахматы");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(new MainPanel());
 		//setBackground(Color.blue);

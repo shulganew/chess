@@ -130,20 +130,22 @@ public class PieceMove extends JPanel implements MouseListener, MouseMotionListe
 		selectedPieceX = arg0.getX() / ChessBoard.SQUARE;
 		selectedPieceY = ChessBoard.CELL - arg0.getY() / ChessBoard.SQUARE - 1;
 		toSqi = ChessBase.coorToSqi(selectedPieceX, selectedPieceY);
+		short move = 0;
 		if (arg0.getX() > 0 && arg0.getX() < ChessBoard.BAORD && arg0.getY() > 0 && arg0.getY() < ChessBoard.BAORD) {
 
 			if (piece != null && toSqi != fromSqi) {
 
 				for (short legalPieceMove : legalPiceMoves){
 					if (toSqi == Move.getToSqi(legalPieceMove))
-						try {
-							position.doMove(legalPieceMove);
+						move = legalPieceMove;
+						
+				}
+				try {
+							position.doMove(move);
 						} catch (IllegalMoveException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						
-				}
 				
 				
 				System.out.println(position.getPieceMove(position.getStone(fromSqi), ChessBase.sqiToCol(fromSqi), ChessBase.sqiToRow(fromSqi), toSqi));
@@ -172,8 +174,9 @@ public class PieceMove extends JPanel implements MouseListener, MouseMotionListe
 		
 		setPictureStones(position);
 		repaint();
-		if (position.isCheck()) JOptionPane.showMessageDialog(this, "Check!");
-		if (position.isMate()) JOptionPane.showMessageDialog(this, "Mate!");
+		if (position.isMate()) JOptionPane.showMessageDialog(this, "Мат!");
+		else if (position.isCheck()) JOptionPane.showMessageDialog(this, "Шах!");
+		
 
 	}
 
