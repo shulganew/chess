@@ -26,6 +26,8 @@ public class Pictures {
 	public static Image imageIconKnightBlack;
 	public static Image imageIconRookBlack;
 	public static Image imageIconPawnBlack;
+	
+	public static Image imageGoodMove;
 
 	public static void LosdImageIcons() {
 		iconChessNotebook = new ImageIcon(Pictures.class.getResource("Chess.png"));
@@ -44,6 +46,7 @@ public class Pictures {
 		imageIconKnightWhite = getPicImage("♘");
 		imageIconRookWhite = getPicImage("♖");
 		imageIconPawnWhite = getPicImage("♙");
+		imageGoodMove = getPicImage("*");
 	}
 
 	private static Image getPicImage(String s) {
