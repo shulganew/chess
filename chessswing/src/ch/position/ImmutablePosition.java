@@ -115,7 +115,7 @@ public interface ImmutablePosition
     
     /**
      * Returns a 64bit hash code of the current position.
-     * 64bit should be enough to disnstinguish positions with almost no collisions.
+     * 64bit should be enough to distinguish positions with almost no collisions.
      * TODO: add reference to paper
      *
      *@return a 64bit hash code

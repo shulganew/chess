@@ -34,6 +34,19 @@ public abstract class AbstractPosition implements ImmutablePosition
     // p = to play: 0 = white, 1 = black
     // c = castle:  see castle constants 0 - 15
     // e = en passant column (0-7) + 1, 0 = no ep square
+	//
+    // constants for castle mask in interface ImmutablePosition
+    
+	//public final int
+	//   NO_CASTLES         = 0,
+	//    WHITE_LONG_CASTLE  = 1,
+	//    WHITE_SHORT_CASTLE = 2,
+	//    BLACK_LONG_CASTLE  = 4,
+	//     BLACK_SHORT_CASTLE = 8,
+	//    WHITE_CASTLE       = WHITE_LONG_CASTLE + WHITE_SHORT_CASTLE,
+	//    BLACK_CASTLE       = BLACK_LONG_CASTLE + BLACK_SHORT_CASTLE,
+	//    ALL_CASTLES        = WHITE_CASTLE + BLACK_CASTLE;
+	
     // x = hash modifier according to stone, square
     //
     // the empty position (wtm, no castles, no ep, no pieces) is initialized to be 0
