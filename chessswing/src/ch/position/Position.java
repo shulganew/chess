@@ -377,7 +377,11 @@ public final class Position extends AbstractMoveablePosition
     private short[] m_moves = new short[256];   // buffer for getAllMoves, allocated once for efficiency
     
     /*================================================================================*/
-    
+    /**
+     * 
+     * New Game
+     * 
+     */
     public static Position createInitialPosition()
     {
         return new Position (FEN.START_POSITION, true);
@@ -457,6 +461,8 @@ public final class Position extends AbstractMoveablePosition
             return ChessBase.NO_STONE;
         }
     }
+    
+    
     
     public final int getPiece(int sqi)
     {

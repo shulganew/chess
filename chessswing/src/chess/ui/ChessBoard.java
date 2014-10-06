@@ -5,17 +5,30 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.util.Arrays;
 
-import javax.swing.ImageIcon;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
+
+import ch.ChessBase;
+import ch.move.IllegalMoveException;
+import ch.move.Move;
+import ch.position.Position;
 import chess.pic.Pictures;
 
 public class ChessBoard extends PieceMove {
 	public static int BAORD = 800;
 	public static int CELL = 8;
 	public static int SQUARE = BAORD / CELL;
+	 
+	
 
 	ChessBoard() {
-		paintBoard();
+		position = Position.createInitialPosition();
+		
+		setPictureStones(position);
+		
+
+		//System.out.println("game " + Arrays.toString(game));
 
 	}
 
@@ -23,15 +36,17 @@ public class ChessBoard extends PieceMove {
 		// System.out.println("draw!");
 		Graphics2D g2 = (Graphics2D) g;
 		super.paintComponent(g2);
-
+		
 		for (int x = 0; x < CELL; x++) {
 			for (int y = 0; y < CELL; y++) {
 				paintSquare(g2, x, y);
-				if (pieces[x][y] != null)
-					g2.drawImage(pieces[x][y], SQUARE * x, SQUARE * y, SQUARE, SQUARE, this);
-
+				if (pieces[ChessBase.coorToSqi(x, (CELL - y - 1))] != null)
+					g2.drawImage(pieces[ChessBase.coorToSqi(x, (CELL - y - 1))], SQUARE *x, SQUARE * y, SQUARE, SQUARE, this);
 			}
 		}
+		
+		//g2.drawImage(pieces[0], SQUARE * 0, SQUARE * 0, SQUARE, SQUARE, this);
+		//g2.drawImage(Pictures.imageIconRookBlack, SQUARE * 1, SQUARE * 0, SQUARE, SQUARE, this);
 		g2.setColor(new Color(255, 0, 255));
 		mousePiece(g2);
 		g2.setColor(new Color(0, 0, 0));
@@ -46,7 +61,7 @@ public class ChessBoard extends PieceMove {
 	}
 
 	public void paintSquare(Graphics2D g2, int x, int y) {
-
+		
 		boolean isWhiteSquare = ((x + y) % 2 == 0);
 		Color squareColor = isWhiteSquare ? new Color(58, 165, 212) : new Color(239, 240, 240);
 		g2.setColor(squareColor);
@@ -55,37 +70,14 @@ public class ChessBoard extends PieceMove {
 		g2.drawRect(SQUARE * x, SQUARE * y, SQUARE, SQUARE);
 
 	}
+	
+	
+	/**
+	 * 
+	 * set and update array of pieces[i] Images
+	 * 
+	 * @param pos
+	 */
 
-	public void paintBoard() {
-
-		pieces = new Image[CELL][CELL];
-
-		for (int k = 0; k < CELL; k++) {
-			pieces[k][1] = Pictures.imageIconPawnBlack;
-			pieces[k][6] = Pictures.imageIconPawnWhite;
-		}
-
-		pieces[0][0] = Pictures.imageIconRookBlack;
-		pieces[7][0] = Pictures.imageIconRookBlack;
-		pieces[0][7] = Pictures.imageIconRookWhite;
-		pieces[7][7] = Pictures.imageIconRookWhite;
-
-		pieces[1][0] = Pictures.imageIconKnightBlack;
-		pieces[6][0] = Pictures.imageIconKnightBlack;
-		pieces[1][7] = Pictures.imageIconKnightWhite;
-		pieces[6][7] = Pictures.imageIconKnightWhite;
-
-		pieces[2][0] = Pictures.imageIconBishopBlack;
-		pieces[5][0] = Pictures.imageIconBishopBlack;
-		pieces[2][7] = Pictures.imageIconBishopWhite;
-		pieces[5][7] = Pictures.imageIconBishopWhite;
-
-		pieces[3][0] = Pictures.imageIconQueenBlack;
-		pieces[4][0] = Pictures.imageIconKingBlack;
-
-		pieces[3][7] = Pictures.imageIconQueenWhite;
-		pieces[4][7] = Pictures.imageIconKingWhite;
-
-	}
 
 }

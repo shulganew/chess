@@ -26,6 +26,7 @@ public abstract class AbstractPosition implements ImmutablePosition
     
     /*================================================================================*/
     // hash codes
+	// long 8 bytes
     //
     //    6         5         4         3         2         1
     // 3210987654321098765432109876543210987654321098765432109876543210
