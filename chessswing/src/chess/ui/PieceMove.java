@@ -220,40 +220,40 @@ public class PieceMove extends JPanel implements MouseListener, MouseMotionListe
 			if (squares[i] != 0)
 				switch (squares[i]) {
 				case ChessBase.WHITE_KING:
-					pieces[i] = Pictures.imageIconKingWhite;
+					pieces[i] = Pictures.iKingWhite;
 					break;
 				case ChessBase.WHITE_PAWN:
-					pieces[i] = Pictures.imageIconPawnWhite;
+					pieces[i] = Pictures.iPawnWhite;
 					break;
 				case ChessBase.WHITE_QUEEN:
-					pieces[i] = Pictures.imageIconQueenWhite;
+					pieces[i] = Pictures.iQueenWhite;
 					break;
 				case ChessBase.WHITE_ROOK:
-					pieces[i] = Pictures.imageIconRookWhite;
+					pieces[i] = Pictures.iRookWhite;
 					break;
 				case ChessBase.WHITE_BISHOP:
-					pieces[i] = Pictures.imageIconBishopWhite;
+					pieces[i] = Pictures.iBishopWhite;
 					break;
 				case ChessBase.WHITE_KNIGHT:
-					pieces[i] = Pictures.imageIconKnightWhite;
+					pieces[i] = Pictures.iKnightWhite;
 					break;
 				case ChessBase.BLACK_KING:
-					pieces[i] = Pictures.imageIconKingBlack;
+					pieces[i] = Pictures.iKingBlack;
 					break;
 				case ChessBase.BLACK_PAWN:
-					pieces[i] = Pictures.imageIconPawnBlack;
+					pieces[i] = Pictures.iPawnBlack;
 					break;
 				case ChessBase.BLACK_QUEEN:
-					pieces[i] = Pictures.imageIconQueenBlack;
+					pieces[i] = Pictures.iQueenBlack;
 					break;
 				case ChessBase.BLACK_ROOK:
-					pieces[i] = Pictures.imageIconRookBlack;
+					pieces[i] = Pictures.iRookBlack;
 					break;
 				case ChessBase.BLACK_BISHOP:
-					pieces[i] = Pictures.imageIconBishopBlack;
+					pieces[i] = Pictures.iBishopBlack;
 					break;
 				case ChessBase.BLACK_KNIGHT:
-					pieces[i] = Pictures.imageIconKnightBlack;
+					pieces[i] = Pictures.iKnightBlack;
 					break;
 				default:
 					pieces[i] = null;

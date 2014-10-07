@@ -1977,6 +1977,7 @@ public final class Position extends AbstractMoveablePosition
     
     private final short[] getAllMoves(long bbTargets, long bbPawnTargets)
     {
+    	System.out.println("bbTargets is " + bbTargets + " " + bbPawnTargets);
         if (PROFILE) m_numGetAllMoves++;
         
         if (bbTargets == 0L) return new short[0];  // =====>

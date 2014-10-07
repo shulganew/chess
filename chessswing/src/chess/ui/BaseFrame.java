@@ -1,6 +1,7 @@
 package chess.ui;
 
 import java.awt.Color;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 
@@ -11,7 +12,12 @@ public class BaseFrame extends JFrame {
 	private static final int DEFAULT_HEIGHT = 600;
 
 	public BaseFrame() {
-		Pictures.LosdImageIcons();
+		try {
+			Pictures.LosdImageIconsImgC();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//setSize(DEFAULT_WIDTH + 18, DEFAULT_HEIGHT + 63);
 		//setIconImage();
 		setIconImage(Pictures.iconChessNotebook.getImage());
