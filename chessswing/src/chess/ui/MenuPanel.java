@@ -13,6 +13,7 @@ import java.lang.management.ManagementFactory;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import ch.position.Position;
+import chess.pic.Pictures;
 
 public class MenuPanel extends JPanel {
 
@@ -32,29 +34,48 @@ public class MenuPanel extends JPanel {
 		fileNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				//restart();
-				
 
 			}
 		});
 		JMenuItem fileExit = new JMenuItem("Выход");
+		fileExit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+		});
 		file.add(fileNew);
 		file.add(fileExit);
 
 		JMenu help = new JMenu("Помощь");
-		
+
 		JMenuItem about = new JMenuItem("О игре");
 		about.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				JOptionPane.showMessageDialog(null,"Chess");
+				JOptionPane.showMessageDialog(null, "Chess");
 
 			}
 		});
 		help.add(about);
 
+		JMenu option = new JMenu("Настройки");
+		JMenu chessType = new JMenu("Тип фигур");
+		
+		
+		JMenuItem op1 = new JMenuItem("Тип 1", new ImageIcon(Pictures.class.getResource("iconKingBlack.png")));
+		JMenuItem op2 = new JMenuItem("Тип 2");
+		JMenuItem op3 = new JMenuItem("Тип 3");
+		
+		chessType.add(op1);
+		chessType.add(op2);
+		chessType.add(op3);
+		option.add(chessType);
 		menuBar.add(file);
-
+		menuBar.add(option);
 		menuBar.add(help);
-
+		
 		setLayout(new GridLayout());
 
 		//setLayout(new BorderLayout());
@@ -62,22 +83,23 @@ public class MenuPanel extends JPanel {
 		add(menuBar);
 
 	}
-	private void restart() {
-        StringBuilder cmd = new StringBuilder();
-          cmd.append(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java ");
-          for (String jvmArg : ManagementFactory.getRuntimeMXBean().getInputArguments()) {
-              cmd.append(jvmArg + " ");
-          }
-          cmd.append("-cp ").append(ManagementFactory.getRuntimeMXBean().getClassPath()).append(" ");
-          cmd.append(Window.class.getName()).append(" ");
 
-          try {
-              Runtime.getRuntime().exec(cmd.toString());
-          } catch (IOException e) {
-              // TODO Auto-generated catch block
-              e.printStackTrace();
-          }
-          System.exit(0);
-  }
+	private void restart() {
+		StringBuilder cmd = new StringBuilder();
+		cmd.append(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java ");
+		for (String jvmArg : ManagementFactory.getRuntimeMXBean().getInputArguments()) {
+			cmd.append(jvmArg + " ");
+		}
+		cmd.append("-cp ").append(ManagementFactory.getRuntimeMXBean().getClassPath()).append(" ");
+		cmd.append(Window.class.getName()).append(" ");
+
+		try {
+			Runtime.getRuntime().exec(cmd.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.exit(0);
+	}
 
 }
