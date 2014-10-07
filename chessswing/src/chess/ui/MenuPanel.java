@@ -65,12 +65,42 @@ public class MenuPanel extends JPanel {
 		
 		
 		JMenuItem op1 = new JMenuItem("Тип 1", new ImageIcon(Pictures.class.getResource("iconKingBlack.png")));
-		JMenuItem op2 = new JMenuItem("Тип 2");
-		JMenuItem op3 = new JMenuItem("Тип 3");
+		JMenuItem op2 = new JMenuItem("Тип 2", new ImageIcon(Pictures.class.getResource("iconKingBlack1.png")));
+		JMenuItem op3 = new JMenuItem("Тип 3", new ImageIcon(Pictures.class.getResource("iconKingBlack2.png")));
+		JMenuItem op4 = new JMenuItem("Тип 4", new ImageIcon(Pictures.class.getResource("iconKingBlack3.png")));
+		op1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				try {
+					Pictures.LosdImageIconsImg();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
 		
+		op2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				try {
+					Pictures.LosdImageIconsImgA();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
 		chessType.add(op1);
 		chessType.add(op2);
 		chessType.add(op3);
+		chessType.add(op4);
 		option.add(chessType);
 		menuBar.add(file);
 		menuBar.add(option);
@@ -81,7 +111,7 @@ public class MenuPanel extends JPanel {
 		//setLayout(new BorderLayout());
 
 		add(menuBar);
-
+	
 	}
 
 	private void restart() {
@@ -101,5 +131,5 @@ public class MenuPanel extends JPanel {
 		}
 		System.exit(0);
 	}
-
+	
 }

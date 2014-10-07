@@ -26,9 +26,9 @@ import ch.position.Position;
 import chess.pic.Pictures;
 
 public class PieceMove extends JPanel implements MouseListener, MouseMotionListener {
-	protected Image[] pieces = new Image[ChessBoard.CELL * ChessBoard.CELL];
-	protected Position position;
-	protected int[] squares = new int[64];
+	protected   Image[] pieces = new Image[64];
+	public static Position position;
+	protected static int[] squares = new int[64];
 	private int selectedPieceX;
 	private int selectedPieceY;
 	private int cSelectedPieceX;
@@ -206,17 +206,19 @@ public class PieceMove extends JPanel implements MouseListener, MouseMotionListe
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	public void setPictureStones(Position pos) {
 		Arrays.fill(pieces, null);
+		Arrays.fill(squares, 0);
 		for (int i = 0; i < 64; i++) {
 			squares[i] = pos.getStone(i);
 
 		}
 
 		for (int i = 0; i < 64; i++) {
+			//System.out.println("iiii" + );
 			if (squares[i] != 0)
 				switch (squares[i]) {
 				case ChessBase.WHITE_KING:
@@ -260,6 +262,7 @@ public class PieceMove extends JPanel implements MouseListener, MouseMotionListe
 					break;
 
 				}
+			repaint();
 		}
 		/*
 		* WHITE_KING = -6, <br>
