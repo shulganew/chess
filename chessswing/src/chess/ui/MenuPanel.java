@@ -34,8 +34,9 @@ public class MenuPanel extends JPanel {
 		JMenuItem fileNew = new JMenuItem("Новая игра");
 		fileNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				//restart();
-
+				PieceMove.position = Position.createInitialPosition();
+				mBoard.setPictureStones(PieceMove.position);
+				mBoard.repaint();
 			}
 		});
 		JMenuItem fileExit = new JMenuItem("Выход");
@@ -55,7 +56,7 @@ public class MenuPanel extends JPanel {
 		JMenuItem about = new JMenuItem("О игре");
 		about.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				JOptionPane.showMessageDialog(null, "Chess");
+				JOptionPane.showMessageDialog(null, "Chess Gamse, Bus and support: shulganew@gmail.com");
 
 			}
 		});
@@ -65,10 +66,10 @@ public class MenuPanel extends JPanel {
 		JMenu chessType = new JMenu("Тип фигур");
 		
 		
-		JMenuItem op1 = new JMenuItem("Тип 1", new ImageIcon(Pictures.class.getResource("iconKingBlack.png")));
-		JMenuItem op2 = new JMenuItem("Тип 2", new ImageIcon(Pictures.class.getResource("iconKingBlack1.png")));
-		JMenuItem op3 = new JMenuItem("Тип 3", new ImageIcon(Pictures.class.getResource("iconKingBlack2.png")));
-		JMenuItem op4 = new JMenuItem("Тип 4", new ImageIcon(Pictures.class.getResource("iconKingBlack3.png")));
+		JMenuItem op1 = new JMenuItem( new ImageIcon(Pictures.class.getResource("iconKingBlack.png")));
+		JMenuItem op2 = new JMenuItem( new ImageIcon(Pictures.class.getResource("iconKingBlack1.png")));
+		JMenuItem op3 = new JMenuItem( new ImageIcon(Pictures.class.getResource("iconKingBlack2.png")));
+		JMenuItem op4 = new JMenuItem( new ImageIcon(Pictures.class.getResource("iconKingBlack3.png")));
 		op1.addActionListener(new ActionListener() {
 			
 			@Override
