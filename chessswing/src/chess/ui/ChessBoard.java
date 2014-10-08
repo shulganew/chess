@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
@@ -33,7 +35,7 @@ public class ChessBoard extends PieceMove {
 	}
 
 	public void paintComponent(Graphics g) {
-		// System.out.println("draw!");
+		System.out.println("draw!");
 		Graphics2D g2 = (Graphics2D) g;
 		super.paintComponent(g2);
 		
@@ -71,13 +73,5 @@ public class ChessBoard extends PieceMove {
 
 	}
 	
-	
-	/**
-	 * 
-	 * set and update array of pieces[i] Images
-	 * 
-	 * @param pos
-	 */
-
 
 }

@@ -11,13 +11,14 @@ import javax.swing.JPanel;
 import ch.position.Position;
 
 public class MainPanel extends JPanel {
-
+	ChessBoard board;
 	MainPanel() {
 		// setBackground(new Color);
 
 		setLayout(new BorderLayout());
-		add(new MenuPanel(), BorderLayout.NORTH);
-		add(new ChessBoard(), BorderLayout.WEST);
+		board = new ChessBoard();
+		add(new MenuPanel(board), BorderLayout.NORTH);		
+		add(board, BorderLayout.WEST);
 
 	}
 

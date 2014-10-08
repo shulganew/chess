@@ -3,6 +3,7 @@ package chess.ui;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -24,10 +25,10 @@ import ch.position.Position;
 import chess.pic.Pictures;
 
 public class MenuPanel extends JPanel {
-
-	public MenuPanel() {
+	ChessBoard mBoard;
+	public MenuPanel(ChessBoard board) {
 		// TODO Auto-generated constructor stub
-
+		mBoard = board;
 		JMenuBar menuBar = new JMenuBar();
 		JMenu file = new JMenu("Меню");
 		JMenuItem fileNew = new JMenuItem("Новая игра");
@@ -75,6 +76,10 @@ public class MenuPanel extends JPanel {
 				// TODO Auto-generated method stub
 				try {
 					Pictures.LosdImageIconsImg();
+					mBoard.setPictureStones(PieceMove.position);
+					mBoard.repaint();
+					System.out.println("change chess 1");
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -90,6 +95,10 @@ public class MenuPanel extends JPanel {
 				// TODO Auto-generated method stub
 				try {
 					Pictures.LosdImageIconsImgA();
+					mBoard.setPictureStones(PieceMove.position);
+					mBoard.repaint();
+					System.out.println("change chess 1");
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -97,6 +106,46 @@ public class MenuPanel extends JPanel {
 
 			}
 		});
+		
+		op3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				try {
+					Pictures.LosdImageIconsImgB();
+					mBoard.setPictureStones(PieceMove.position);
+					mBoard.repaint();
+					System.out.println("change chess 1");
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
+		
+		op4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				try {
+					Pictures.LosdImageIconsImgC();
+					mBoard.setPictureStones(PieceMove.position);
+					mBoard.repaint();
+					System.out.println("change chess 1");
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
+		
+		
 		chessType.add(op1);
 		chessType.add(op2);
 		chessType.add(op3);

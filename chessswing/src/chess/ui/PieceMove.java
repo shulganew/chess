@@ -262,7 +262,7 @@ public class PieceMove extends JPanel implements MouseListener, MouseMotionListe
 					break;
 
 				}
-			repaint();
+			
 		}
 		/*
 		* WHITE_KING = -6, <br>

@@ -15,6 +15,8 @@ import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import chess.ui.PieceMove;
+
 
 public class Pictures {
 	public static ImageIcon iconChessNotebook;
