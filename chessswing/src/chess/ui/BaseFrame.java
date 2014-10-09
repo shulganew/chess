@@ -30,7 +30,6 @@ public class BaseFrame extends JFrame {
 		add(new MainPanel());
 		//setBackground(Color.blue);
 		pack();
-		
 		setVisible(true);
 		
 		

@@ -56,7 +56,7 @@ public class MenuPanel extends JPanel {
 		JMenuItem about = new JMenuItem("О игре");
 		about.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				JOptionPane.showMessageDialog(null, "Chess Gamse, Bus and support: shulganew@gmail.com");
+				JOptionPane.showMessageDialog(null, "Chess Gamse, Bugs and support: shulganew@gmail.com");
 
 			}
 		});
